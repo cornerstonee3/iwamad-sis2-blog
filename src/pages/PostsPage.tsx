@@ -1,8 +1,19 @@
+import PostCard from '../components/PostCard';
+import { posts } from '../data/posts';
+
 export default function PostsPage() {
   return (
-    <div>
+    <main>
       <h2>Blog Posts</h2>
-      <p>Скоро здесь появятся посты</p>
-    </div>
+
+      <div style={{ display: 'grid', gap: '20px', marginTop: '20px' }}>
+        {posts.map((post) => (
+          <PostCard 
+            key={post.id} 
+            post={post} 
+          />
+        ))}
+      </div>
+    </main>
   );
 }
