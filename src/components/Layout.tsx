@@ -7,10 +7,10 @@ export default function Layout() {
     <>
       <Header 
         name="Amanbol Moldash" 
-        tagline="IWAMAD Student" 
+        tagline="My blog" 
       />
       
-      <div style={{ minHeight: '60vh', padding: '20px' }}>
+      <div style={{ minHeight: '60vh', padding: '20px 0' }}>
         <Outlet />
       </div>
       
