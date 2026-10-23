@@ -1,5 +1,4 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { describe, test, expect } from 'vitest';
 
@@ -13,19 +12,13 @@ import { posts } from './data/posts';
 
 describe('Blog Application Tests', () => {
 
-  test('1. Like button changes when clicked', async () => {
-    const user = userEvent.setup();
-    
-    render(
-      <LikesProvider>
-        <LikeButton />
-      </LikesProvider>
-    );
-
+  test('likebutton changes visible text when clicked', () => {
+    render(<LikeButton />);
+   
     const button = screen.getByRole('button');
     const initialText = button.textContent;
 
-    await user.click(button);
+    fireEvent.click(button);
 
     expect(button.textContent).not.toBe(initialText);
   });
